@@ -11,12 +11,11 @@ public class MyFileWriter {
         String regularFileName = "confidential.dat";
         String secretData = "Top Secret Data: Highly Confidential.";
 
-        try ( // 1. Creating a hidden file with a password
+        try (
                 FileWriter hiddenFileWriter = new FileWriter(hiddenFileName)) {
             hiddenFileWriter.write(password);
         }
 
-        // 2. Creating a hidden folder and writing a regular file inside it
         Path hiddenFolderPath = Paths.get(hiddenFolder);
         Files.createDirectory(hiddenFolderPath);
 
