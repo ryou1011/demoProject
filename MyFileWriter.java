@@ -22,5 +22,10 @@ public class MyFileWriter {
         try (FileWriter regularFileWriter = new FileWriter(hiddenFolder + "/" + regularFileName)) {
             regularFileWriter.write(secretData);
         }
+        
+    }
+    // Calculate and print the file size using the File class
+    private static void printFileSize(String fileName) {
+    System.out.println (fileName.length());
     }
 }
