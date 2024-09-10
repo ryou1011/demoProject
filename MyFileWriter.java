@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.nio.file.*;
 
@@ -11,16 +10,30 @@ public class MyFileWriter {
         String regularFileName = "confidential.dat";
         String secretData = "Top Secret Data: Highly Confidential.";
 
-        try (
-                FileWriter hiddenFileWriter = new FileWriter(hiddenFileName)) {
+        // Write to hidden file
+        try (FileWriter hiddenFileWriter = new FileWriter(hiddenFileName)) {
             hiddenFileWriter.write(password);
         }
 
+        // Create hidden folder
         Path hiddenFolderPath = Paths.get(hiddenFolder);
         Files.createDirectory(hiddenFolderPath);
 
+        // Write to regular file inside the hidden folder
         try (FileWriter regularFileWriter = new FileWriter(hiddenFolder + "/" + regularFileName)) {
             regularFileWriter.write(secretData);
+        }
+
+        printFileSize(hiddenFileName);
+        printFileSize(hiddenFolder + "/" + regularFileName);
+    }
+
+    private static void printFileSize(String fileName) {
+        File file = new File(fileName);
+        if (file.exists()) {
+            System.out.println("File size of " + fileName + ": " + file.length() + " bytes.");
+        } else {
+            System.out.println("File " + fileName + " does not exist.");
         }
     }
 }
