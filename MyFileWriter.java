@@ -36,4 +36,8 @@ public class MyFileWriter {
             System.out.println("File " + fileName + " does not exist.");
         }
     }
+    private static void printTotalFileSize(String... fileNames) {
+    
+        System.out.println("Total size of all files: ...TBD... bytes");
+    }
 }
