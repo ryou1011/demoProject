@@ -26,6 +26,8 @@ public class MyFileWriter {
 
         printFileSize(hiddenFileName);
         printFileSize(hiddenFolder + "/" + regularFileName);
+        printTotalFileSize("file1.txt", "directory1/file2.txt", ".hiddenDirectory/file3.txt");
+
     }
 
     private static void printFileSize(String fileName) {
@@ -47,4 +49,5 @@ public class MyFileWriter {
         }
         System.out.println("Total size of all files: " + totalSize + " bytes");
     }
+    
 }
